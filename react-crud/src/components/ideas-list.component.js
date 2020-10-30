@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
-
+import "./ideas-list.css";
 
 class DataTable extends Component {
     intervalID;
@@ -59,6 +59,8 @@ class DataTable extends Component {
         <tbody>
           {ideas}
         </tbody>
+
+        <Button  href="/add" className="mt-5"color="success"> Add an Idea</Button>
       </Table>
     )
   }

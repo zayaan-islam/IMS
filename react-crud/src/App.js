@@ -1,26 +1,26 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {  NavbarBrand,  Nav } from 'reactstrap';
 import "./App.css";
 import DataTable from "./components/ideas-list.component";
 import AddIdea from "./components/add-idea.component";
+import Idea from "./components/idea.component";
 
-class App extends Component {
 
+
+export default class App extends Component {
   intervalID;
-
   state = {
       ideas : []
     }
     componentDidMount(){
-      this.getIdeas()
+      this.getIdeas()   
     }
 
     componentWillUnmount(){
         clearTimeout(this.intervalID);
     }
-
-  
     getIdeas(){
       fetch('http://localhost:8080/api/ideas')
         .then(response => response.json())
@@ -29,17 +29,21 @@ class App extends Component {
         this.intervalID = setTimeout(this.getIdeas.bind(this), 5000)
     }
 
-
-
-  render() {
+  render(){
     return (
       <container>
-              <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <a href="/" className="navbar-brand ml-4">
+        <div>
+        <nav className="navbar navbar-expand navbar-dark">
+          <NavbarBrand href="/" className="navbar-brand ml-4">
             Ideation
-          </a>
-          <div className="navbar-nav ml-auto">
+          </NavbarBrand>
+          <Nav className="navbar-nav ml-auto">
+
+          <li className="nav-item">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
             <li className="nav-item">
               <Link to={"/ideas"} className="nav-link">
                 Ideas
@@ -47,14 +51,21 @@ class App extends Component {
             </li>
             <li className="nav-item">
               <Link to={"/add"} className="nav-link">
-                Add
+                Create
               </Link>
             </li>
-          </div>
+            <li className="nav-item">
+              <Link className="nav-link">
+                Fund
+              </Link>
+            </li>
+          </Nav>
         </nav>
         <div className="container mt-3">
           <Switch>
-
+            <Route exact path="/">
+              <Idea />
+            </Route>
             <Route exact path="/add">
               <AddIdea />
             </Route>
@@ -71,4 +82,3 @@ class App extends Component {
   }
 }
 
-export default App;

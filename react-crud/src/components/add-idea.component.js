@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import IdeaDataService from "../services/idea.service";
+import {Button} from "reactstrap";
+
 
 export default class AddTutorial extends Component {
 
@@ -92,7 +94,7 @@ export default class AddTutorial extends Component {
 
   render() {
         return (
-          <div className="submit-form">
+             <div className="submit-form clearfix">
             {this.state.submitted ? (
               <div>
                 <h4 align="center">You submitted successfully!</h4>
@@ -161,8 +163,8 @@ export default class AddTutorial extends Component {
                     name="risks"
                   />
                 </div>
-    
-                <button  onClick={this.saveIdea} className="btn btn-primary mt-3">
+                
+                <button  size="lg" onClick={this.saveIdea} className="btn btn-primary mt-3 mr-5">
                   Submit
                 </button>
               </div>

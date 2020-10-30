@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.discover{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border: black;
+}
+
+.search-img{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.discover-text{
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Staatliches', cursive;
+    font-size: larger;
+
+
+}
+
+.create{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border: black;
+}
+
+.create-text{
+    position: absolute;
+    top: 95%;
+    left: 46%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Staatliches', cursive;
+    font-size: larger;
+
+}
+
+.form-img{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.support{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border: black;
+}
+
+.fund-img{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.fund-text{
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Staatliches', cursive;
+    font-size: larger;
+
+
+}
