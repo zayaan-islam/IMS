@@ -9,6 +9,9 @@ class IdeaDataService {
     return http.post("/ideas", data);
   }
 
+  findByTitle(title) {
+    return http.get(`/tutorials?title=${title}`);
+  }
 
   }
 

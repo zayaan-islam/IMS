@@ -1,30 +1,9 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
-import "./ideas-list.css";
+
 
 class DataTable extends Component {
-    intervalID;
 
-    state = {
-        ideas : []
-      }
-      componentDidMount(){
-        this.getIdeas()
-      }
-
-      componentWillUnmount(){
-          clearTimeout(this.intervalID);
-      }
-
-    
-      getIdeas(){
-        fetch('http://localhost:8080/api/ideas')
-          .then(response => response.json())
-          .then(ideas => this.setState({ideas}))
-          .catch(err => console.log(err))
-          this.intervalID = setTimeout(this.getIdeas.bind(this), 5000)
-      }
-    
 
       
 

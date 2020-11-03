@@ -6,7 +6,7 @@ import "./App.css";
 import DataTable from "./components/ideas-list.component";
 import AddIdea from "./components/add-idea.component";
 import Idea from "./components/idea.component";
-
+import SupportList from "./components/support-idea-component";
 
 
 export default class App extends Component {
@@ -63,6 +63,7 @@ export default class App extends Component {
         </nav>
         <div className="container mt-3">
           <Switch>
+            
             <Route exact path="/">
               <Idea />
             </Route>
@@ -71,6 +72,9 @@ export default class App extends Component {
             </Route>
             <Route exact path="/ideas">
               <DataTable ideas={this.state.ideas}/>
+            </Route>
+            <Route exact path="/fund">
+              <SupportList/>
             </Route>
           </Switch>
         </div>
