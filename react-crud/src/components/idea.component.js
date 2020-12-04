@@ -29,7 +29,7 @@ export default class Idea extends Component {
             <Card className="support text-center">
               <CardBody>
               </CardBody>
-              <a href="/fund"> 
+              <a href="/saved"> 
                 <img className="fund-img" src={Fund} alt="search"/>
               </a>
               <CardText className="fund-text">Fund an existing Idea</CardText>

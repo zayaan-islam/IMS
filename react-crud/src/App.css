@@ -4,11 +4,6 @@
  font-family: 'Staatliches', cursive;
 }
 
-.list {
-  text-align: left;
-  max-width: 750px;
-  margin: auto;
-}
 
 .submit-form {
   width: 500px;
@@ -20,11 +15,10 @@
   transform: translate(-50%, -50%);
   border: 1px solid;
   padding: 50px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 
-.submit-button {
-  margin-top: 3px;
-}
+
 .edit-form {
   max-width: 300px;
   margin: auto;

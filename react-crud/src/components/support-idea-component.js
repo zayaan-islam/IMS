@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react';
 import IdeaDataService from "../services/idea.service";
+import "./support-idea.css";
 
 
 export default class SupportList extends Component {
@@ -15,7 +16,7 @@ export default class SupportList extends Component {
         this.state = {
             tutorials : [],
             currentIdea : null,
-            currentIdea: -1,
+            currentIndex: -1,
             searchTitle: ""
 
         };
@@ -65,7 +66,7 @@ export default class SupportList extends Component {
         IdeaDataService.findByTitle(this.state.searchTitle)
             .then(response => {
                 this.setState({
-                    ideas: response.data
+                    ideas: response.data,
                 });
                 console.log(response.data);
             })
@@ -75,33 +76,11 @@ export default class SupportList extends Component {
     }
 
     render() {
-        const { searchTitle, ideas, currentIdea, currentIndex } = this.state;
-    
+        const { ideas, currentIdea, currentIndex } = this.state;
         return (
           <div className="list row">
-            <div className="col-md-8">
-              <div className="input-group mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search by title"
-                  value={searchTitle}
-                  onChange={this.onChangeSearchTitle}
-                />
-                <div className="input-group-append">
-                  <button
-                    className="btn btn-outline-secondary"
-                    type="button"
-                    onClick={this.searchTitle}
-                  >
-                    Search
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <h4>ideas List</h4>
-    
+            <div className="col-md-6 mt-3">
+              <h4 align="center" >Saved Ideas</h4>
               <ul className="list-group">
                 {ideas &&
                   ideas.map((idea, index) => (
@@ -117,18 +96,11 @@ export default class SupportList extends Component {
                     </li>
                   ))}
               </ul>
-    
             </div>
-            <div className="col-md-5">
+            <div className="col-md-5 ml-5 mt-5">
               {currentIdea ? (
                 <div>
-                  <h4>Idea</h4>
-                  <div>
-                    <label>
-                      <strong>Title:</strong>
-                    </label>{" "}
-                    {currentIdea.title}
-                  </div>
+                  <h4 align="center">{currentIdea.title}</h4>
                   <div>
                     <label className="mt-3">
                       <strong>Description:</strong>
@@ -147,7 +119,8 @@ export default class SupportList extends Component {
                     </label>{" "}
                     {currentIdea.risk}
                   </div>
-
+                  <button className="btn-xs btn-success mt-5 mb-3" >Fund Idea</button>
+                  <button className="btn-xs btn-danger mt-5 ml-5 mb-3" >Remove Idea</button>
                 </div>
               ) : (
                 <div>
@@ -157,6 +130,7 @@ export default class SupportList extends Component {
               )}
             </div>
           </div>
+          
         );
       }
     }

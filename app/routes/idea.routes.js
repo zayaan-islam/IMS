@@ -5,6 +5,7 @@ module.exports = app => {
     var router = require("express").Router();
     router.post("/", ideas.create);
     router.get("/", ideas.findAll);
+    router.get("/:id", ideas.findOne);
     router.delete("/", ideas.deleteAll);
     router.delete("/:id", ideas.delete);
   

@@ -1,0 +1,5 @@
+.col-md-5{
+    border-left: dashed .05px;
+    border-bottom: dashed .05px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}

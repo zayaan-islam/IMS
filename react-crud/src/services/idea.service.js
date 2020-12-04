@@ -10,7 +10,11 @@ class IdeaDataService {
   }
 
   findByTitle(title) {
-    return http.get(`/tutorials?title=${title}`);
+    return http.get(`/ideas?title=${title}`);
+  }
+
+  get(id) {
+    return http.get(`/ideas/${id}`);
   }
 
   }

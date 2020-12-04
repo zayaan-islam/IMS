@@ -98,8 +98,11 @@ export default class AddTutorial extends Component {
             {this.state.submitted ? (
               <div>
                 <h4 align="center">You submitted successfully!</h4>
-                <button className="btn btn-success" onClick= { () => this.newIdea() }>
+                <button className="btn btn-success mt-5" onClick= { () => this.newIdea() }>
                   Add
+                </button>
+                <button href="/ideas" className="btn btn-primary mt-5 ml-5">
+                  View Ideas
                 </button>
               </div>
             ) : (

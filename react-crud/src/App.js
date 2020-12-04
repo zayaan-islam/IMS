@@ -7,7 +7,8 @@ import DataTable from "./components/ideas-list.component";
 import AddIdea from "./components/add-idea.component";
 import Idea from "./components/idea.component";
 import SupportList from "./components/support-idea-component";
-
+import IdeaInfo from "./components/idea-page";
+import Register from "./components/register.component";
 
 export default class App extends Component {
   intervalID;
@@ -38,12 +39,6 @@ export default class App extends Component {
             Ideation
           </NavbarBrand>
           <Nav className="navbar-nav ml-auto">
-
-          <li className="nav-item">
-              <Link to="/" className="nav-link">
-                Home
-              </Link>
-            </li>
             <li className="nav-item">
               <Link to={"/ideas"} className="nav-link">
                 Ideas
@@ -55,8 +50,13 @@ export default class App extends Component {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link">
-                Fund
+              <Link to={"/saved"} className="nav-link">
+                Saved
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/register"} className="nav-link">
+                Register
               </Link>
             </li>
           </Nav>
@@ -73,9 +73,13 @@ export default class App extends Component {
             <Route exact path="/ideas">
               <DataTable ideas={this.state.ideas}/>
             </Route>
-            <Route exact path="/fund">
+            <Route exact path="/saved">
               <SupportList/>
             </Route>
+            <Route exact path ="/register">
+              <Register/>
+            </Route>
+            <Route path="/ideas/:id" component={IdeaInfo} />
           </Switch>
         </div>
       </div>

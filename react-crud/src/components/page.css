@@ -1,0 +1,53 @@
+
+.text{
+    border: 1px black;
+    border-bottom: solid black;
+    margin-bottom: 2px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.driver-text{
+    background-color: #2ed573;
+    text-align: center;
+    border: 1px black;
+    border-bottom: solid black;
+    border-top: solid black;
+    border-left: solid black;
+    border-right: solid black;
+}
+
+
+.risk-text{
+    background-color: #ff6348;
+    text-align: center;
+    border: 1px black;
+    border-bottom: solid black;
+    border-top: solid black;
+    border-left: solid black;
+    border-right: solid black;
+
+}
+
+
+.info{
+    margin-top: 15%;
+}
+
+.buttons{
+    margin-top: 10%;
+}
+.fund{
+    margin-top: 10%;
+    margin-left: 10%;
+    text-align: center;
+}
+
+.progress{
+    margin-top: 5%;
+    margin-bottom: 5px;
+}
+
+.description{
+    margin-top: 10%;
+}

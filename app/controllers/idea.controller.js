@@ -100,3 +100,16 @@ exports.create = (req, res) => {
             err.message || "Some error occurred while retrieving ideas."});
         });
       };
+  exports.findOne = (req, res) => {
+  const id = req.params.id;
+
+  Idea.findByPk(id)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving Idea with id=" + id
+      });
+    });
+};
