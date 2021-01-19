@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import {Form, FormGroup, Label, Input, Button} from "reactstrap";
 import IdeaDataService from "../services/idea.service";
-import {Button} from "reactstrap";
 
 
+//Componentfor idea submission form
 export default class AddTutorial extends Component {
 
-
+// Creates and sets state to read information from form and submit to database
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -25,7 +26,7 @@ export default class AddTutorial extends Component {
       submitted: false
     };
   }
-
+//Binding title, description, driver, and risk form input to state variables created above
   onChangeTitle(e) {
     this.setState({
       title: e.target.value
@@ -51,7 +52,7 @@ export default class AddTutorial extends Component {
   }
 
 
-
+//Function to save the idea to the database
   saveIdea() {
     var data = {
       title: this.state.title,
@@ -92,26 +93,27 @@ export default class AddTutorial extends Component {
     });
   }
 
+//Form for submitting ideas
   render() {
         return (
-             <div className="submit-form clearfix">
+             <Form className="submit-form">
             {this.state.submitted ? (
-              <div>
+              <div className="text-center">
                 <h4 align="center">You submitted successfully!</h4>
-                <button className="btn btn-success mt-5" onClick= { () => this.newIdea() }>
+                <Button className="btn btn-success mt-5" onClick= { () => this.newIdea() }>
                   Add
-                </button>
-                <button href="/ideas" className="btn btn-primary mt-5 ml-5">
+                </Button>
+                <Button href="/ideas" color="primary" className="btn btn-primary mt-5 ml-5">
                   View Ideas
-                </button>
+                </Button>
               </div>
             ) : (
-              <div>
+              <Form className="submit-form">
                 <div className="form-title"> 
                 <h1 className="mb-3" align="center"> Add a new Idea</h1> </div>
-                <div className="form-group">
-                  <label className="mt-3" htmlFor="title">Title for your idea</label>
-                  <input 
+                <FormGroup>
+                  <Label className="mt-3" htmlFor="title">Title for your idea</Label>
+                  <Input 
                     type="text"
                     className="form-control"
                     id="title"
@@ -120,11 +122,11 @@ export default class AddTutorial extends Component {
                     onChange={this.onChangeTitle}
                     name="title"
                   />
-                </div>
+                </FormGroup>
     
-                <div className="form-group">
-                  <label className="mt-3" htmlFor="description">Description</label>
-                  <textarea
+                <FormGroup>
+                  <Label className="mt-3" htmlFor="description">Description</Label>
+                  <Input
                     type="textarea"
                     maxLength = "120"
                     className="form-control"
@@ -135,11 +137,11 @@ export default class AddTutorial extends Component {
                     onChange={this.onChangeDescription}
                     name="description"
                   />
-                </div>
+                </FormGroup>
 
-                <div className="form-group">
-                  <label className="mt-3" htmlFor="driver">Driver</label>
-                  <textarea
+                <FormGroup>
+                  <Label className="mt-3" htmlFor="driver">Driver</Label>
+                  <Input
                     type="textarea"
                     maxLength ="50"
                     className="form-control"
@@ -150,11 +152,11 @@ export default class AddTutorial extends Component {
                     onChange={this.onChangeDriver}
                     name="driver"
                   />
-                </div>
+                </FormGroup>
 
-                <div className="form-group">
-                  <label className="mt-3" htmlFor="driver">Risk</label>
-                  <textarea
+                <FormGroup>
+                  <Label className="mt-3" htmlFor="driver">Risk</Label>
+                  <Input
                     type="textarea"
                     maxLength ="50"
                     className="form-control"
@@ -165,14 +167,15 @@ export default class AddTutorial extends Component {
                     onChange={this.onChangeRisk}
                     name="risks"
                   />
-                </div>
-                
-                <button  size="lg" onClick={this.saveIdea} className="btn btn-primary mt-3 mr-5">
+                </FormGroup>
+                <div className="text-center">
+                <Button  color="primary" size="lg" onClick={this.saveIdea} className="mt-4">
                   Submit
-                </button>
-              </div>
+                </Button>
+                </div>
+              </Form>
             )}
-          </div>
+          </Form>
         );
   }
 }

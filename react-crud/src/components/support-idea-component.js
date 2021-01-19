@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import IdeaDataService from "../services/idea.service";
 import "./support-idea.css";
 
-
+//Used to display saved ideas
 export default class SupportList extends Component {
     constructor(props) {
         super(props);

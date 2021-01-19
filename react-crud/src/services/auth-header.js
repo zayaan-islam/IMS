@@ -1,3 +1,5 @@
+//Auth header to receive and check user token status
+
 export default function authHeader() {
     const user = JSON.parse(localStorage.getItem('user'));
   

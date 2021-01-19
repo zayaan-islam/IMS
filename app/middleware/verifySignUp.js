@@ -1,6 +1,8 @@
 const db = require("../models/index")
 const User = db.users;
 
+
+//Verifies user does not already exist in sign up page
 checkExistingEmailorUserName = (req, res, next) => {
     User.findOne({
         where: {

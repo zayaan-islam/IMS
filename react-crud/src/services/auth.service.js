@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//Connects and imports functions from authentication API
 const API_URL = "http://localhost:8080/api/auth/";
 
 class AuthService {

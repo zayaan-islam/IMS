@@ -3,11 +3,12 @@ import React, {Component} from "react";
 import {Container, Col, Row, Progress, Button} from "reactstrap";
 import IdeaDataService from "../services/idea.service";
 import "./page.css"
+
+//Component used to display information of the idea that the user wishes to read further
 export default class IdeaInfo extends Component{
     constructor(props){
         super(props);
         this.getIdea = this.getIdea.bind(this);
-
         this.state = {
             currentIdea: {
                 id: null,
@@ -21,7 +22,6 @@ export default class IdeaInfo extends Component{
 
         };
     }
-
     componentDidMount(){
         this.getIdea(this.props.match.params.id);
     }
@@ -40,7 +40,6 @@ export default class IdeaInfo extends Component{
     }
     render() {
         const { currentIdea } = this.state;
-
         return(
             <div>
                 <Container className="container">
@@ -63,8 +62,8 @@ export default class IdeaInfo extends Component{
                         <h3>33% of goal to fund idea </h3>
                         <Progress className="progress" animated color="#3742fa" value="33"/>    
                         <div className="buttons">
-                        <Button size="sm" color="success"> Fund Idea</Button>
-                        <Button className="ml-3" size="sm" color="primary"> Save Idea </Button>
+                        <Button size="md" color="success"> Fund Idea</Button>
+                        <Button className="ml-3" size="md" color="primary"> Save Idea </Button>
                         </div>
                     </div>
                      </Col>

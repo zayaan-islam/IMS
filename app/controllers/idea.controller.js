@@ -1,7 +1,7 @@
 const db = require("../models");
 const Idea = db.idea;
 const Op = db.Sequelize.Op;
-
+//Creates entry for submitted idea in database
 exports.create = (req, res) => {
 
     if (!req.body.title) {
@@ -32,7 +32,7 @@ exports.create = (req, res) => {
         });
       });
   };
-
+//Deletes idea from database
   exports.delete = (req, res) => {
     const id = req.params.id;
   
@@ -56,7 +56,7 @@ exports.create = (req, res) => {
         });
       });
   };
-
+//Finds every idea in database
   exports.findAll = (req, res) => {
     const title = req.query.title;
     var condition = title ? { title: { [Op.iLike]: `%${title}%` } } : null;
@@ -72,7 +72,7 @@ exports.create = (req, res) => {
         });
       });
   };
-
+//Can delete all existing ideas in database
   exports.deleteAll = (req, res) => {
     Idea.destroy({
       where: {},
@@ -88,7 +88,7 @@ exports.create = (req, res) => {
         });
       });
   };
-
+//Selects all the ideas in the database to show
   exports.selectAll = (req, res) => {
     Idea.select("*")
       .then(data => {
@@ -100,6 +100,8 @@ exports.create = (req, res) => {
             err.message || "Some error occurred while retrieving ideas."});
         });
       };
+
+  //Finds idea by Title or ID
   exports.findOne = (req, res) => {
   const id = req.params.id;
 

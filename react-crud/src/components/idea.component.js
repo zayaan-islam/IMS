@@ -5,7 +5,7 @@ import Form from "./assets/form.svg";
 import Fund from "./assets/fund.svg";
 import "./idea.css";
 
-
+//Landing page with links to the different pages of the system
 export default class Idea extends Component {
     render() {
         return (
@@ -15,7 +15,7 @@ export default class Idea extends Component {
               <a href="/add"> 
                 <img className="form-img" src={Form} alt="search"/>
               </a>
-              <CardText className="create-text">Create an Idea</CardText>
+              <CardText className="create-text">Share an Idea</CardText>
               </CardBody>
             </Card>
             <Card className="discover text-center">

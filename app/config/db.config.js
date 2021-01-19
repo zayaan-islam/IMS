@@ -1,3 +1,6 @@
+// Configuration for control to postgres database, replace password with yours, and update name to name of database you created for project
+
+
 module.exports = {
     HOST: "localhost",
     USER: "postgres",

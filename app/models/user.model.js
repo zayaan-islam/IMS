@@ -1,3 +1,5 @@
+//Creates model for user in users database
+
 module.exports = (sequelize, Sequelize) => {
     const Users = sequelize.define("user", {
       username: {

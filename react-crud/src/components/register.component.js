@@ -6,7 +6,7 @@ import { isEmail } from "validator";
 
 import AuthService from "../services/auth.service";
 
-
+//Creates required value for form validation, displays message when field does not pass validation
 const required = value => {
     if (!value) {
       return (
@@ -16,7 +16,7 @@ const required = value => {
       );
     }
   };
-  
+  //Checks for valid email
   const email = value => {
     if (!isEmail(value)) {
       return (
@@ -26,7 +26,7 @@ const required = value => {
       );
     }
   };
-  
+  //Checks for valid username
   const vusername = value => {
     if (value.length < 3 || value.length > 20) {
       return (
@@ -36,7 +36,7 @@ const required = value => {
       );
     }
   };
-  
+  //Checks for valid password
   const vpassword = value => {
     if (value.length < 6 || value.length > 40) {
       return (
@@ -48,6 +48,7 @@ const required = value => {
   };
   
   export default class Register extends Component {
+    //Creates state to manage and store data from registration fields
     constructor(props) {
       super(props);
       this.handleRegister = this.handleRegister.bind(this);
@@ -81,7 +82,7 @@ const required = value => {
         password: e.target.value
       });
     }
-  
+  //Function to validate and create account for user
     handleRegister(e) {
       e.preventDefault();
   
@@ -101,9 +102,8 @@ const required = value => {
           response => {
             this.setState({
               message: response.data.message,
-              successful: true
-              
-            });
+              successful: true,
+            })
           },
           error => {
             const resMessage =
@@ -121,15 +121,15 @@ const required = value => {
         );
       }
     }
-  
+  //Rengers registration form
     render() {
       return (
-        <div className="col-md-6">
+   
           
 
   
-            <Form
-              className="mt-3"
+            <Form 
+              className="register-form"
               onSubmit={this.handleRegister}
               ref={c => {
                 this.form = c;
@@ -137,11 +137,13 @@ const required = value => {
             >
               {!this.state.successful && (
                 <div>
+                <div className="form-title"> 
+                <h1 className="mb-3" align="center"> Register for IMS</h1> </div>
                   <div className="form-group mt-3">
                     <label htmlFor="username">Username</label>
                     <Input
                       type="text"
-                      className="form-control"
+                      className="form-control mt-2"
                       name="username"
                       value={this.state.username}
                       onChange={this.onChangeUsername}
@@ -153,7 +155,7 @@ const required = value => {
                     <label htmlFor="email">Email</label>
                     <Input
                       type="text"
-                      className="form-control"
+                      className="form-control mt-2"
                       name="email"
                       value={this.state.email}
                       onChange={this.onChangeEmail}
@@ -165,7 +167,7 @@ const required = value => {
                     <label htmlFor="password">Password</label>
                     <Input
                       type="password"
-                      className="form-control"
+                      className="form-control mt-2"
                       name="password"
                       value={this.state.password}
                       onChange={this.onChangePassword}
@@ -176,6 +178,11 @@ const required = value => {
                   <div className="form-group">
                     <button className="btn btn-primary btn-block mt-4">Sign Up</button>
                   </div>
+                  <div className="text-align center">
+                    <a href="/login" className="mt-3">
+                    Login to existing account
+                </a>
+            </div>
                 </div>
               )}
   
@@ -201,7 +208,7 @@ const required = value => {
               />
             </Form>
 
-        </div>
+   
       );
     }
   }

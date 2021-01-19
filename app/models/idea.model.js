@@ -1,3 +1,5 @@
+//Creates the model for the idea entry in postgres database
+
 module.exports = (sequelize, Sequelize) => {
     const Idea = sequelize.define("idea", {
       title: {

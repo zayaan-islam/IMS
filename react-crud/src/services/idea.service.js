@@ -1,5 +1,5 @@
 import http from "../http-common";
-
+//Connects and imports functions from data service API
 class IdeaDataService {
   getAll() {
     return http.get("/ideas");

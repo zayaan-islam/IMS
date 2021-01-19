@@ -7,6 +7,7 @@ const Op = db.Sequelize.Op;
 var jwt = require("jsonwebtoken")
 var bcrypt = require("bcryptjs");
 
+//Function to use with sign up page and send information to database
 exports.signup = (req, res) => {
     User.create({
         username: req.body.username,
@@ -14,7 +15,7 @@ exports.signup = (req, res) => {
         password: bcrypt.hashSync(req.body.password, 9)
     })
 };
-
+//Allows the user to log in and verifies username exists and password is correct
 exports.signin = (req, res) => {
     User.findOne({
         where: {

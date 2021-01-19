@@ -1,5 +1,7 @@
 const dbConfig = require("../config/db.config.js");
 
+
+//Configuration and connection to postgres database
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
@@ -19,8 +21,9 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+//Ideas referencing idea model
 db.idea = require("./idea.model.js")(sequelize, Sequelize);
-
+//Users database referencing user model
 db.users = require("./user.model.js")(sequelize, Sequelize);
 
 module.exports = db;
